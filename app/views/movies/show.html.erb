@@ -2,7 +2,7 @@
 
 <%= link_to image_tag(@movie.poster_image_url), @movie %>
 
-<p><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", delete_movie_path(@movie) %>)</p>
+<p><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)</p>
 <p><%= @movie.release_date %></p>
-<p><%= @movie.director %> | <%= movie.runtime_in_minutes %></p>
+<p><%= @movie.director %> | <%= @movie.runtime_in_minutes %></p>
 <p><%= @movie.description %></p>
