@@ -1,0 +1,10 @@
+<h1>Rotten Mangoes</h1>
+<%= link_to "Submit a movie", new_movie_path %>
+<hr>
+<% @movies.each do |movie| %>
+  <p><%= movie.title %></p>
+  <p><%= movie.release_date %></p>
+  <p><%= movie.director %> | <%= movie.runtime_in_minutes %></p>
+  <p><%= movie.description %></p>
+  <hr>
+<% end %>
