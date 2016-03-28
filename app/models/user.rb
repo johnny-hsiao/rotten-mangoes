@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :password, presence: true, length: { in: 6..20 }, on: :create
-  validates :password_confirmation, presence: true, length: { in: 6..20 }, on: :create
+  validates :password_confirmation, presence: true
 end
