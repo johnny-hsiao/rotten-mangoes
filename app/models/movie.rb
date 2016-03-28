@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  has_many :reviews
+
   validates_presence_of :title, :director, :description, :poster_image_url, :release_date
   validates :runtime_in_minutes, numericality: { only_integer: true }
   validate :release_date_is_in_the_past
