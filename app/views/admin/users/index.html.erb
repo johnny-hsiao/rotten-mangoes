@@ -1,0 +1,22 @@
+<h1>Admin User Management</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>email</th>
+      <th>admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.is_admin %></td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+
+</table>
