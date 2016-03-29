@@ -1,6 +1,7 @@
-<%= link_to "Back to all movies", movies_path %>
+<%= link_to "Back to all movies", movies_path %><br/>
 
-<%= link_to image_tag(@movie.poster_image_url), @movie %>
+<%= image_tag(@movie.poster_image_url_url(:thumb).to_s) %>
+<%= image_tag(@movie.poster_image_url) %>
 
 <p><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)</p>
 <p><%= formatted_date(@movie.release_date) %></p>
