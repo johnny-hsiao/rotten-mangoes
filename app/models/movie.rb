@@ -5,6 +5,10 @@ class Movie < ActiveRecord::Base
   validates :runtime_in_minutes, numericality: { only_integer: true }
   validate :release_date_is_in_the_past
 
+  def review_average
+    reviews.sum(:rating_out_of_ten)/reviews.size
+  end
+
   protected
 
   def release_date_is_in_the_past
@@ -12,4 +16,6 @@ class Movie < ActiveRecord::Base
       errors.add(:release_date, "should be in the past") if release_date > Date.today
     end
   end
+
+
 end

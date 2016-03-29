@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :lastname, presence: true
   validates :password, presence: true, length: { in: 6..20 }, on: :create
   validates :password_confirmation, presence: true
+
+  def full_name
+    "#{firstname} #{lastname}"
+  end
 end
