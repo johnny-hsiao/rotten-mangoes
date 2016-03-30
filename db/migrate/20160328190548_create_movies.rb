@@ -3,7 +3,7 @@ class CreateMovies < ActiveRecord::Migration
     create_table :movies do |t|
       t.string :title
       t.string :director
-      t.string :runtime_in_minutes
+      t.integer :runtime_in_minutes
       t.string :integer
       t.text :description
       t.string :poster_image_url

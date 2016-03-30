@@ -1,6 +1,28 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
+    if params[:search_title] != "" 
+      @movies = @movies.where("title LIKE ?", "%#{params[:search_title]}%")
+    end
+    if params[:search_dir] != ""
+      @movies = @movies.where("director LIKE ?", "%#{params[:search_dir]}%")
+    end
+    if params[:search_duration] != ""
+      case params[:search_duration]
+      when "Under 90 minutes"
+        @movies = @movies.where("runtime_in_minutes < 90")
+      when "Between 90 and 120 minutes"
+        @movies = @movies.where("runtime_in_minutes BETWEEN 90 AND 120")
+      when "Over 120 minutes"
+        @movies = @movies.where("runtime_in_minutes > 120")
+      end
+    end
+    if @movies.size == 0
+      flash[:notice] = "DB migrate"
+      @movies = Movie.all
+    else
+      @movies
+    end
   end
 
   def show
