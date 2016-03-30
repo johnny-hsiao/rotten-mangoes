@@ -42,6 +42,8 @@ GEM
     coffee-script-source (1.10.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (1.5.3)
@@ -51,6 +53,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -116,8 +121,10 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   carrierwave
   coffee-rails (~> 4.0.0)
+  faker
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   rails (= 4.0.0)
   rmagick
   sass-rails (~> 4.0.0)

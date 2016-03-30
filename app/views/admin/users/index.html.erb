@@ -1,5 +1,6 @@
 <h1>Admin User Management</h1>
 
+<%= paginate @users %>
 <table>
   <thead>
     <tr>
@@ -11,9 +12,12 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.id %></td>
         <td><%= user.full_name %></td>
         <td><%= user.email %></td>
         <td><%= user.is_admin %></td>
+        <td><%= link_to "view profile", admin_user_path(user) %></td>
+        <td><%= link_to "delete profile", admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"} %></td>
       </tr>
       
     <% end %>

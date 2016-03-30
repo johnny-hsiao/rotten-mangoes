@@ -1,0 +1,15 @@
+<%= link_to "Main Admin Page", admin_users_path %>
+
+<h3>Full name: <%= @user.full_name %><h3>
+<p>Email: <%= @user.email %></p>
+<p>Date joined: <%= @user.created_at %></p>
+
+<hr>
+
+<h4>Reviews by user</h4>
+
+<% @reviews.each do |review| %>
+  <p><%= review.movie.title %></p>
+  <p><%= review.rating_out_of_ten %></p>
+  <p><%= review.text %></p>
+<% end %>

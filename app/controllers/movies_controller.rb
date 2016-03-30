@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find_by(id: params[:id])
+    movie_selected
   end
 
   def new
@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find_by(id: params[:id])
+    movie_selected
   end
 
   def create
@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movie.find_by(id: params[:id])
+    movie_selected
 
     if @movie.update_attributes(movie_params)
       redirect_to @movie
@@ -36,12 +36,16 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find_by(id: params[:id])
+    movie_selected
     @movie.destroy
     redirect_to movies_path
   end
 
   protected
+
+  def movie_selected
+    @movie = Movie.find(params[:id])
+  end
 
   def movie_params
     params.require(:movie).permit(
