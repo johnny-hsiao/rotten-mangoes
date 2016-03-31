@@ -11,12 +11,8 @@ class Movie < ActiveRecord::Base
   scope :between_90and120mins, -> { where("runtime_in_minutes BETWEEN 90 AND 120") }
   scope :over_120mins,         -> { where("runtime_in_minutes > 120") }
 
-  def self.search_title(title)
-    where("title LIKE ?", "%#{title}%")
-  end
-  
-  def self.search_director(director)
-    where("director LIKE ?", "%#{director}%")
+  def self.search_movies(keyword)
+    where("title LIKE ? OR director LIKE ?", "%#{keyword}%", "%#{keyword}%")
   end
 
   def review_average

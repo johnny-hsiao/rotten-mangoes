@@ -1,11 +1,8 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
-    if params[:search_title] != "" 
-      @movies = @movies.search_title(params[:search_title])
-    end
-    if params[:search_dir] != ""
-      @movies = @movies.search_director(params[:search_dir])
+    if params[:search_movies] != "" 
+      @movies = @movies.search_movies(params[:search_movies])
     end
     if params[:search_duration] != ""
       case params[:search_duration]

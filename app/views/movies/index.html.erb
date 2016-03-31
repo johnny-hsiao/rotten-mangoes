@@ -1,10 +1,8 @@
 <h1>Rotten Mangoes</h1>
 
 <%= form_tag(root_path, method: "get") do %>
-  <%= label_tag(:search_title, "Title: ") %>
-  <%= text_field_tag(:search_title) %>
-    <%= label_tag(:search_dir, "Director: ") %>
-  <%= text_field_tag(:search_dir) %>
+  <%= label_tag(:search_movies, "Keyword: ") %>
+  <%= text_field_tag(:search_movies) %>
   <%= select_tag(:search_duration, 
     "<option></option>
       <option>Under 90 minutes</option>
