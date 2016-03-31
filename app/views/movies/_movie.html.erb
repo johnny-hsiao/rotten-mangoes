@@ -1,0 +1,8 @@
+<div class="col-xs-3">
+  <p><%= image_tag movie.poster_image_url_url(:thumb) %></p>
+  <p><%= link_to movie.title, movie %></p>
+  <p><%= formatted_date(movie.release_date) %></p>
+  <p><%= movie.director %> | <%= movie.runtime_in_minutes %></p>
+  <p>average: <%= movie.reviews.size > 0 ? movie.review_average : "-" %>/10</p>
+  <p><%= movie.description %></p>
+</div>
