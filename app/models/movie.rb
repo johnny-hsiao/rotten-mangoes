@@ -14,7 +14,8 @@ class Movie < ActiveRecord::Base
   def self.search_title(title)
     where("title LIKE ?", "%#{title}%")
   end
-  def self.search_dir(director)
+  
+  def self.search_director(director)
     where("director LIKE ?", "%#{director}%")
   end
 
